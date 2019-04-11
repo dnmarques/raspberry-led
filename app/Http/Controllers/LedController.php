@@ -15,8 +15,8 @@ class LedController extends Controller
     }
     public function toggle()
     {
-        return redirect()->route('home');
-        $pin = $gpio->getOutputPin(17);
+        $pin = $this->gpio->getOutputPin(17);
         $pin->setValue(PinInterface::VALUE_HIGH);
+        return redirect()->route('home');
     }
 }
