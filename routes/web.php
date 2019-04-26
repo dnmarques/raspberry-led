@@ -11,8 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', ['uses' => 'LedController@home', 'as' => 'home']);
 
-Route::get('/toggle', ['uses' => 'LedController@toggle', 'as' => 'toggle']);
+Route::get('/on', ['uses' => 'LedController@turnOn', 'as' => 'on']);
+Route::get('/off', ['uses' => 'LedController@turnOff', 'as' => 'off']);

@@ -1,0 +1,1 @@
+gpio -g mode 17 out

@@ -2,21 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use PiPHP\GPIO\GPIO;
+use App\Services\Led;
+// use PiPHP\GPIO\GPIO;
 use Illuminate\Http\Request;
-use PiPHP\GPIO\Pin\PinInterface;
+// use PiPHP\GPIO\Pin\PinInterface;
 
 class LedController extends Controller
 {
     public function __construct(
-        GPIO $gpio
+        Led $led
     ) {
-        $this->gpio = $gpio;
+        $this->led = $led;
     }
-    public function toggle()
+
+    public function home()
     {
-        $pin = $this->gpio->getOutputPin(17);
-        $pin->setValue(PinInterface::VALUE_HIGH);
-        return redirect()->route('home');
+        return view('welcome')->with(['ledStatus' => $this->led->getStatus()]);
+    }
+
+    public function turnOn()
+    {
+
+        return redirect()->route('home')->with(['ledStatus' => $this->led->getStatus()]);
+    }
+
+    public function turnOff()
+    {
+
+        return redirect()->route('home')->with(['ledStatus' => $this->led->getStatus()]);
     }
 }

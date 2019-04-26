@@ -85,7 +85,10 @@
                 </div>
 
                 <div>
-                    <a href="{{route('toggle')}}"><button>TURN LED ON</button></a>
+                    <a href="{{route('on')}}"><button>TURN LED ON</button></a>
+                    <a href="{{route('off')}}"><button>TURN LED OFF</button></a>
+                    <br>
+                    <span>Status: {{$ledStatus}}</span>
                 </div>
             </div>
         </div>
