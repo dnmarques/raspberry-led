@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\Led;
-// use PiPHP\GPIO\GPIO;
 use Illuminate\Http\Request;
-// use PiPHP\GPIO\Pin\PinInterface;
 
 class LedController extends Controller
 {
@@ -22,13 +20,13 @@ class LedController extends Controller
 
     public function turnOn()
     {
-
+        $this->led->turnOn();
         return redirect()->route('home')->with(['ledStatus' => $this->led->getStatus()]);
     }
 
     public function turnOff()
     {
-
+        $this->led->turnOff();
         return redirect()->route('home')->with(['ledStatus' => $this->led->getStatus()]);
     }
 }
