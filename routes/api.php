@@ -16,3 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('status', ['uses' => 'Api\LedController@status', 'as' => 'api.led.status']);
+Route::put('status', ['uses' => 'Api\LedController@setStatus', 'as' => 'api.led.set.status']);
